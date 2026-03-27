@@ -13,11 +13,6 @@ const tabs = [
   { id: 'technical', label: 'Technical View', icon: Code2 },
 ];
 
-const modeTone = {
-  simulation: 'border-amber-700 text-amber-800 bg-amber-100',
-  live_sap: 'border-emerald-700 text-emerald-800 bg-emerald-100',
-};
-
 export default function App() {
   const { payload, status } = useInventoryStream();
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -35,14 +30,10 @@ export default function App() {
       <div className="mx-auto w-full max-w-[1500px] space-y-4">
         <header className="rounded border border-ink/40 bg-panel p-4 shadow-grid">
           <h1 className="text-2xl font-black uppercase tracking-widest">S/4HANA Real-time Inventory Monitor</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-xs uppercase tracking-wide text-ink/70">
-            <span className={`rounded border px-2 py-1 font-semibold ${modeTone[payload?.mode] || 'border-ink/30'}`}>
-              {payload?.mode === 'live_sap' ? 'LIVE SAP' : payload?.mode === 'simulation' ? 'SIMULATION' : 'LOADING'}
-            </span>
-            <span>Socket: {status}</span>
-            <span>Generated: {payload?.generatedAt || '...'}</span>
-          </div>
-          <p className="mt-1 text-xs uppercase text-ink/70">
+          <p className="mt-1 text-xs uppercase tracking-wide text-ink/70">
+            Mode: {payload?.mode || 'loading'} | Socket: {status} | Generated: {payload?.generatedAt || '...'}
+          </p>
+          <p className="text-xs uppercase text-ink/70">
             Global Units: {metrics.totalUnits.toLocaleString()} | Global SKU: {metrics.sku}
           </p>
           <div className="mt-3 flex gap-2">

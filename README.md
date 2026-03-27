@@ -20,12 +20,6 @@ npm run dev
 Frontend: http://localhost:5173  
 Backend: http://localhost:4000
 
-## Simulation-first run (recommended for demos)
-
-Set `FORCE_SIMULATION=true` in `backend/.env`.
-
-That guarantees the backend stays in simulation mode even if SAP credentials are present, so you can demo the dashboard and realtime websocket updates safely.
-
 ## SAP Connectivity
 
 Set the following in `backend/.env`:
@@ -35,8 +29,6 @@ Set the following in `backend/.env`:
 - `SAP_PASSWORD`
 - `SAP_CLIENT`
 - `SAP_PLANTS` (comma-separated)
-
-Then set `FORCE_SIMULATION=false` to enable live SAP reads.
 
 If credentials are missing, the app automatically runs **simulation mode** with continuously changing stock values.
 
