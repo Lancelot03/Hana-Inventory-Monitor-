@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: #e4e3e0;
+  color: #141414;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.grid-tech {
+  background-image: linear-gradient(to right, #14141410 1px, transparent 1px),
+    linear-gradient(to bottom, #14141410 1px, transparent 1px);
+  background-size: 20px 20px;
+}
